@@ -1,0 +1,13 @@
+/*
+Theme Name: Doode Theme
+Theme URI: http://www.doode.net
+Description: The Doode community theme for BuddyPress.
+Version: 0.0.1
+Author: the Doode community
+Author URI: http://www.doode.net
+Template: bp-default
+Tags: buddypress, three-columns, doode
+*/
+
+
+@import url( custom.css );
