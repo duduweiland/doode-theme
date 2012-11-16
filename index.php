@@ -1,70 +1,72 @@
-<?php get_header() ?>
+<?php get_header(); ?>
 
-	<div id="content">
-	<?php locate_template( array( 'leftsidebar.php' ), true ) ?>
-		<div class="padder three">
+    <div id="content">
 
-		<?php do_action( 'bp_before_blog_home' ) ?>
+    <?php locate_template( array( 'leftsidebar.php' ), true ) ?>
 
-		<?php do_action( 'template_notices' ) ?>
+        <div class="padder three">
 
-		<div class="page" id="blog-latest" role="main">
+        <?php do_action( 'bp_before_blog_home' ); ?>
 
-			<?php if ( have_posts() ) : ?>
+        <?php do_action( 'template_notices' ); ?>
 
-				<?php bp_dtheme_content_nav( 'nav-above' ); ?>
+        <div class="page" id="blog-latest" role="main">
 
-				<?php while (have_posts()) : the_post(); ?>
+            <?php if ( have_posts() ) : ?>
 
-					<?php do_action( 'bp_before_blog_post' ) ?>
+                <?php bp_dtheme_content_nav( 'nav-above' ); ?>
 
-					<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                <?php while (have_posts()) : the_post(); ?>
 
-						<div class="author-box">
-							<?php echo get_avatar( get_the_author_meta( 'user_email' ), '50' ); ?>
-							<p><?php printf( _x( 'by %s', 'Post written by...', 'buddypress' ), bp_core_get_userlink( $post->post_author ) ) ?></p>
+                    <?php do_action( 'bp_before_blog_post' ); ?>
 
-							<?php if ( is_sticky() ) : ?>
-								<span class="activity sticky-post"><?php _ex( 'Featured', 'Sticky post', 'buddypress' ); ?></span>
-							<?php endif; ?>
-						</div>
+                    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-						<div class="post-content">
-							<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+                        <div class="author-box">
+                            <?php echo get_avatar( get_the_author_meta( 'user_email' ), '50' ); ?>
+                            <p><?php printf( _x( 'by %s', 'Post written by...', 'buddypress' ), bp_core_get_userlink( $post->post_author ) ); ?></p>
 
-							<p class="date"><?php printf( __( '%1$s <span>in %2$s</span>', 'buddypress' ), get_the_date(), get_the_category_list( ', ' ) ); ?></p>
+                            <?php if ( is_sticky() ) : ?>
+                                <span class="activity sticky-post"><?php _ex( 'Featured', 'Sticky post', 'buddypress' ); ?></span>
+                            <?php endif; ?>
+                        </div>
 
-							<div class="entry">
-								<?php the_content( __( 'Read the rest of this entry &rarr;', 'buddypress' ) ); ?>
-								<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
-							</div>
+                        <div class="post-content">
+                            <h2 class="posttitle"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
-							<p class="postmetadata"><?php the_tags( '<span class="tags">' . __( 'Tags: ', 'buddypress' ), ', ', '</span>' ); ?> <span class="comments"><?php comments_popup_link( __( 'No Comments &#187;', 'buddypress' ), __( '1 Comment &#187;', 'buddypress' ), __( '% Comments &#187;', 'buddypress' ) ); ?></span></p>
-						</div>
+                            <p class="date"><?php printf( __( '%1$s <span>in %2$s</span>', 'buddypress' ), get_the_date(), get_the_category_list( ', ' ) ); ?></p>
 
-					</div>
+                            <div class="entry">
+                                <?php the_content( __( 'Read the rest of this entry &rarr;', 'buddypress' ) ); ?>
+                                <?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
+                            </div>
 
-					<?php do_action( 'bp_after_blog_post' ) ?>
+                            <p class="postmetadata"><?php the_tags( '<span class="tags">' . __( 'Tags: ', 'buddypress' ), ', ', '</span>' ); ?> <span class="comments"><?php comments_popup_link( __( 'No Comments &#187;', 'buddypress' ), __( '1 Comment &#187;', 'buddypress' ), __( '% Comments &#187;', 'buddypress' ) ); ?></span></p>
+                        </div>
 
-				<?php endwhile; ?>
+                    </div>
 
-				<?php bp_dtheme_content_nav( 'nav-below' ); ?>
+                    <?php do_action( 'bp_after_blog_post' ); ?>
 
-			<?php else : ?>
+                <?php endwhile; ?>
 
-				<h2 class="center"><?php _e( 'Not Found', 'buddypress' ) ?></h2>
-				<p class="center"><?php _e( 'Sorry, but you are looking for something that isn\'t here.', 'buddypress' ) ?></p>
+                <?php bp_dtheme_content_nav( 'nav-below' ); ?>
 
-				<?php get_search_form() ?>
+            <?php else : ?>
 
-			<?php endif; ?>
-		</div>
+                <h2 class="center"><?php _e( 'Not Found', 'buddypress' ); ?></h2>
+                <p class="center"><?php _e( 'Sorry, but you are looking for something that isn\'t here.', 'buddypress' ); ?></p>
 
-		<?php do_action( 'bp_after_blog_home' ) ?>
+                <?php get_search_form(); ?>
 
-		</div><!-- .padder -->
-	</div><!-- #content -->
+            <?php endif; ?>
+        </div>
 
-	<?php get_sidebar() ?>
+        <?php do_action( 'bp_after_blog_home' ); ?>
 
-<?php get_footer() ?>
+        </div><!-- .padder -->
+    </div><!-- #content -->
+
+    <?php get_sidebar(); ?>
+
+<?php get_footer(); ?>

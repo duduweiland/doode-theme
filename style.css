@@ -37,8 +37,14 @@ div#header div#navigation {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+#logo {
+    line-height: 100%;
+}
 
 /** SEARCH **/
+#search-form {
+    float: right;
+}
 #header #search-bar #search-terms {
     height: 23px;
     padding: 2px 10px;
@@ -88,6 +94,7 @@ div#header div#navigation {
     text-decoration: underline;
 }
 
+/** NAVIGATION **/
 #nav {
     margin: 0;
     float: left;
@@ -115,6 +122,44 @@ div#header div#navigation {
 
 #nav > li:first-child, #nav > li:first-child a {
     border-bottom-left-radius: 5px !important;
+}
+
+/** USER LINKS **/
+#user-links {
+    margin: 0 0 0 15px;
+    float: left;
+}
+#user-links * {
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+}
+#user-links img.avatar  {
+    padding: 0;
+    border: 2px solid #B5CEE5;
+}
+#user-links .username {
+    margin: 2px 7px 0 5px;
+    font-size: 1.5em;
+    font-weight: normal;
+}
+#user-links .username a {
+    color: white;
+    text-decoration: none;
+}
+#user-links .username a:hover {
+    text-decoration: underline;
+}
+#user-links .button {
+    background: #004695;
+    color: #b5cee5;
+    border: 0;
+    border-radius: 3px;
+    padding: 4px 5px 4px 5px;
+    margin: 2px 0 0 3px;
+}
+#user-links .button:hover {
+    color: white;
 }
 
 /*---------+
@@ -228,4 +273,18 @@ div.post div.post-content, div.comment-content {
 }
 div.post .entry{
     clear: both;
+}
+
+/*----------+
+ | ACTIVITY |
+ +----------*/
+img.avatar {
+    background-color: white;
+    border: 1px solid #D9D9D9;
+    float: left;
+    padding: 4px;
+}
+
+.activity-list li.load-more {
+    border: 1px solid #DDDDDD;
 }
