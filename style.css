@@ -6,7 +6,7 @@ Version: 0.0.1
 Author: the Doode community
 Author URI: http://www.doode.net
 Template: bp-default
-Tags: buddypress, three-columns, doode
+Tags: buddypress, two-columns, doode
 */
 
 body {
@@ -107,10 +107,12 @@ div#header div#navigation {
 }
 #nav li.current-menu-item a, #nav li.current_page_item a {
     background: #cdcdcd; /* IE */
-    background: -moz-linear-gradient(top, #cdcdcd 0%, #c4c4c4 3%, #c4c4c4 6%, #e8e8e8 97%, #dedede 100%); /* FF */
-    background: -webkit-linear-gradient(top, #cdcdcd 0%,#c4c4c4 3%,#c4c4c4 6%,#e8e8e8 97%,#dedede 100%); /* Chrome */
-    background: -o-linear-gradient(top, #cdcdcd 0%,#c4c4c4 3%,#c4c4c4 6%,#e8e8e8 97%,#dedede 100%); /* Opera */
-    background: linear-gradient(to bottom, #cdcdcd 0%,#c4c4c4 3%,#c4c4c4 6%,#e8e8e8 97%,#dedede 100%); /* W3C */
+    background-image: url('images/navselector.png'), -webkit-linear-gradient(top, #cdcdcd 0%,#c4c4c4 3%,#c4c4c4 6%,#e8e8e8 97%,#dedede 100%); /* Chrome */
+    background-image: url('images/navselector.png'),    -moz-linear-gradient(top, #cdcdcd 0%, #c4c4c4 3%, #c4c4c4 6%, #e8e8e8 97%, #dedede 100%); /* FF */
+    background-image: url('images/navselector.png'),      -o-linear-gradient(top, #cdcdcd 0%,#c4c4c4 3%,#c4c4c4 6%,#e8e8e8 97%,#dedede 100%); /* Opera */
+    background-image: url('images/navselector.png'),         linear-gradient(to bottom, #cdcdcd 0%,#c4c4c4 3%,#c4c4c4 6%,#e8e8e8 97%,#dedede 100%); /* W3C */
+    background-repeat: no-repeat;
+    background-position: center bottom;
 }
 #nav li a {
     border: none;
@@ -167,28 +169,23 @@ div#header div#navigation {
  +---------*/
 div#container, div#content, div#content div.padder.three {
     border: 0;
+    margin: 0;
 }
-
-div#content div.padder.three {
-	float: left;
-	width: 552px;
-	margin-right: 200px;
-	-moz-border-radius-topleft: 0px;
-	-webkit-border-top-left-radius: 0px;
-	-moz-border-radius-bottomleft: 0px;
-	-webkit-border-bottom-left-radius: 0px;
-	margin-left: -1px;
+div#content {
+    width: 790px;
 }
 
 /*----------+
  | SIDEBARS |
  +----------*/
-div#leftSidebar, div#sidebar {
+div#sidebar {
     border-radius: 0;
     border: 0;
+    margin: 0;
+    width: 210px;
 }
 
-div#leftSidebar h3.widgettitle, div#sidebar h3.widgettitle {
+div#sidebar h3.widgettitle {
     border-radius: 2px;
     color: #222;
     font-size: 1em;
@@ -199,19 +196,6 @@ div#leftSidebar h3.widgettitle, div#sidebar h3.widgettitle {
     background: -webkit-linear-gradient(top, #f5f5f5 0%,#ede7eb 100%); /* Chrome */
     background: -o-linear-gradient(top, #f5f5f5 0%,#ede7eb 100%); /* Opera */
     background: linear-gradient(to bottom, #f5f5f5 0%,#ede7eb 100%); /* W3C */
-}
-
-div#sidebar {
-    width: 200px;
-    margin-left: -200px;
-}
-
-div#leftSidebar {
-	width: 182px;
-	float: left;
-	padding: 10px 5px 20px 20px;
-	margin-top: 1px;
-	overflow: hidden;
 }
 
 /*--------+

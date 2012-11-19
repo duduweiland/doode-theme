@@ -15,56 +15,57 @@
 
 <?php get_header( 'buddypress' ); ?>
 
-	<div id="content">
-	<?php locate_template( array( 'leftsidebar.php' ), true ) ?>
-		<div class="padder three">
+    <?php get_sidebar( 'buddypress' ); ?>
 
-			<?php do_action( 'bp_before_member_plugin_template' ); ?>
+    <div id="content">
 
-			<div id="item-header">
+        <div class="padder three">
 
-				<?php locate_template( array( 'members/single/member-header.php' ), true ); ?>
+            <?php do_action( 'bp_before_member_plugin_template' ); ?>
 
-			</div><!-- #item-header -->
+            <div id="item-header">
 
-			<div id="item-nav">
-				<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
-					<ul>
+                <?php locate_template( array( 'members/single/member-header.php' ), true ); ?>
 
-						<?php bp_get_displayed_user_nav(); ?>
+            </div><!-- #item-header -->
 
-						<?php do_action( 'bp_member_options_nav' ); ?>
+            <div id="item-nav">
+                <div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
+                    <ul>
 
-					</ul>
-				</div>
-			</div><!-- #item-nav -->
+                        <?php bp_get_displayed_user_nav(); ?>
 
-			<div id="item-body" role="main">
+                        <?php do_action( 'bp_member_options_nav' ); ?>
 
-				<?php do_action( 'bp_before_member_body' ); ?>
+                    </ul>
+                </div>
+            </div><!-- #item-nav -->
 
-				<div class="item-list-tabs no-ajax" id="subnav">
-					<ul>
+            <div id="item-body" role="main">
 
-						<?php bp_get_options_nav(); ?>
+                <?php do_action( 'bp_before_member_body' ); ?>
 
-						<?php do_action( 'bp_member_plugin_options_nav' ); ?>
+                <div class="item-list-tabs no-ajax" id="subnav">
+                    <ul>
 
-					</ul>
-				</div><!-- .item-list-tabs -->
+                        <?php bp_get_options_nav(); ?>
 
-				<h3><?php do_action( 'bp_template_title' ); ?></h3>
+                        <?php do_action( 'bp_member_plugin_options_nav' ); ?>
 
-				<?php do_action( 'bp_template_content' ); ?>
+                    </ul>
+                </div><!-- .item-list-tabs -->
 
-				<?php do_action( 'bp_after_member_body' ); ?>
+                <h3><?php do_action( 'bp_template_title' ); ?></h3>
 
-			</div><!-- #item-body -->
+                <?php do_action( 'bp_template_content' ); ?>
 
-			<?php do_action( 'bp_after_member_plugin_template' ); ?>
+                <?php do_action( 'bp_after_member_body' ); ?>
 
-		</div><!-- .padder -->
-	</div><!-- #content -->
+            </div><!-- #item-body -->
 
-<?php get_sidebar( 'buddypress' ); ?>
+            <?php do_action( 'bp_after_member_plugin_template' ); ?>
+
+        </div><!-- .padder -->
+    </div><!-- #content -->
+
 <?php get_footer( 'buddypress' ); ?>

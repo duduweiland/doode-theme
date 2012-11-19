@@ -10,74 +10,74 @@
 
 <?php get_header( 'buddypress' ) ?>
 
-	<div id="content">
-	<?php locate_template( array( 'leftsidebar.php' ), true ) ?>
-		<div class="padder three">
+    <?php get_sidebar( 'buddypress' ); ?>
 
-			<?php do_action( 'bp_before_member_settings_template' ); ?>
+    <div id="content">
 
-			<div id="item-header">
+        <div class="padder three">
 
-				<?php locate_template( array( 'members/single/member-header.php' ), true ); ?>
+            <?php do_action( 'bp_before_member_settings_template' ); ?>
 
-			</div><!-- #item-header -->
+            <div id="item-header">
 
-			<div id="item-nav">
-				<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
-					<ul>
+                <?php locate_template( array( 'members/single/member-header.php' ), true ); ?>
 
-						<?php bp_get_displayed_user_nav(); ?>
+            </div><!-- #item-header -->
 
-						<?php do_action( 'bp_member_options_nav' ); ?>
+            <div id="item-nav">
+                <div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
+                    <ul>
 
-					</ul>
-				</div>
-			</div><!-- #item-nav -->
+                        <?php bp_get_displayed_user_nav(); ?>
 
-			<div id="item-body" role="main">
+                        <?php do_action( 'bp_member_options_nav' ); ?>
 
-				<?php do_action( 'bp_before_member_body' ); ?>
+                    </ul>
+                </div>
+            </div><!-- #item-nav -->
 
-				<div class="item-list-tabs no-ajax" id="subnav">
-					<ul>
+            <div id="item-body" role="main">
 
-						<?php bp_get_options_nav(); ?>
+                <?php do_action( 'bp_before_member_body' ); ?>
 
-						<?php do_action( 'bp_member_plugin_options_nav' ); ?>
+                <div class="item-list-tabs no-ajax" id="subnav">
+                    <ul>
 
-					</ul>
-				</div><!-- .item-list-tabs -->
+                        <?php bp_get_options_nav(); ?>
 
-				<h3><?php _e( 'Email Notification', 'buddypress' ); ?></h3>
+                        <?php do_action( 'bp_member_plugin_options_nav' ); ?>
 
-				<?php do_action( 'bp_template_content' ) ?>
+                    </ul>
+                </div><!-- .item-list-tabs -->
 
-				<form action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/notifications'; ?>" method="post" class="standard-form" id="settings-form">
-					<p><?php _e( 'Send a notification by email when:', 'buddypress' ); ?></p>
+                <h3><?php _e( 'Email Notification', 'buddypress' ); ?></h3>
 
-					<?php do_action( 'bp_notification_settings' ); ?>
+                <?php do_action( 'bp_template_content' ) ?>
 
-					<?php do_action( 'bp_members_notification_settings_before_submit' ); ?>
+                <form action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/notifications'; ?>" method="post" class="standard-form" id="settings-form">
+                    <p><?php _e( 'Send a notification by email when:', 'buddypress' ); ?></p>
 
-					<div class="submit">
-						<input type="submit" name="submit" value="<?php _e( 'Save Changes', 'buddypress' ); ?>" id="submit" class="auto" />
-					</div>
+                    <?php do_action( 'bp_notification_settings' ); ?>
 
-					<?php do_action( 'bp_members_notification_settings_after_submit' ); ?>
+                    <?php do_action( 'bp_members_notification_settings_before_submit' ); ?>
 
-					<?php wp_nonce_field('bp_settings_notifications'); ?>
+                    <div class="submit">
+                        <input type="submit" name="submit" value="<?php _e( 'Save Changes', 'buddypress' ); ?>" id="submit" class="auto" />
+                    </div>
 
-				</form>
+                    <?php do_action( 'bp_members_notification_settings_after_submit' ); ?>
 
-				<?php do_action( 'bp_after_member_body' ); ?>
+                    <?php wp_nonce_field('bp_settings_notifications'); ?>
 
-			</div><!-- #item-body -->
+                </form>
 
-			<?php do_action( 'bp_after_member_settings_template' ); ?>
+                <?php do_action( 'bp_after_member_body' ); ?>
 
-		</div><!-- .padder -->
-	</div><!-- #content -->
+            </div><!-- #item-body -->
 
-<?php get_sidebar( 'buddypress' ) ?>
+            <?php do_action( 'bp_after_member_settings_template' ); ?>
+
+        </div><!-- .padder -->
+    </div><!-- #content -->
 
 <?php get_footer( 'buddypress' ) ?>

@@ -1,21 +1,6 @@
 <?php
-// register left sidebar
-function doode_register_sidebars() {
-    register_sidebar(
-        array(
-            'id' => 'left sidebar',
-            'name' => 'Left Sidebar',
-            'before_widget' => '<div id="%1$s" class="widget %2$s">',
-            'after_widget' => '</div>',
-            'before_title' => '<h3 class="widgettitle">',
-            'after_title' => '</h3>'
-        )
-    );
-}
-add_action( 'widgets_init', 'doode_register_sidebars' );
-
-global $content_width;
-$content_width = 500;
+// global $content_width;
+// $content_width = 500;
 
 // add user links on header
 function doode_header_user_links() {

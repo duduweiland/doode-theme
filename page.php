@@ -1,41 +1,41 @@
 <?php get_header() ?>
 
-	<div id="content">
-	<?php locate_template( array( 'leftsidebar.php' ), true ) ?>
-		<div class="padder three">
+    <?php get_sidebar(); ?>
 
-		<?php do_action( 'bp_before_blog_page' ) ?>
+    <div id="content">
 
-		<div class="page" id="blog-page" role="main">
+        <div class="padder three">
 
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+        <?php do_action( 'bp_before_blog_page' ) ?>
 
-				<h2 class="pagetitle"><?php the_title(); ?></h2>
+        <div class="page" id="blog-page" role="main">
 
-				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-					<div class="entry">
+                <h2 class="pagetitle"><?php the_title(); ?></h2>
 
-						<?php the_content( __( '<p class="serif">Read the rest of this page &rarr;</p>', 'buddypress' ) ); ?>
+                <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-						<?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
-						<?php edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>
+                    <div class="entry">
 
-					</div>
+                        <?php the_content( __( '<p class="serif">Read the rest of this page &rarr;</p>', 'buddypress' ) ); ?>
 
-				</div>
+                        <?php wp_link_pages( array( 'before' => '<div class="page-link"><p>' . __( 'Pages: ', 'buddypress' ), 'after' => '</p></div>', 'next_or_number' => 'number' ) ); ?>
+                        <?php edit_post_link( __( 'Edit this page.', 'buddypress' ), '<p class="edit-link">', '</p>'); ?>
 
-			<?php comments_template(); ?>
+                    </div>
 
-			<?php endwhile; endif; ?>
+                </div>
 
-		</div><!-- .page -->
+            <?php comments_template(); ?>
 
-		<?php do_action( 'bp_after_blog_page' ) ?>
+            <?php endwhile; endif; ?>
 
-		</div><!-- .padder -->
-	</div><!-- #content -->
+        </div><!-- .page -->
 
-	<?php get_sidebar() ?>
+        <?php do_action( 'bp_after_blog_page' ) ?>
+
+        </div><!-- .padder -->
+    </div><!-- #content -->
 
 <?php get_footer(); ?>

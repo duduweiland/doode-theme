@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-    <div id="content">
+    <?php get_sidebar(); ?>
 
-    <?php locate_template( array( 'leftsidebar.php' ), true ) ?>
+    <div id="content">
 
         <div class="padder three">
 
@@ -55,7 +55,5 @@
 
         </div><!-- .padder -->
     </div><!-- #content -->
-
-    <?php get_sidebar(); ?>
 
 <?php get_footer(); ?>
