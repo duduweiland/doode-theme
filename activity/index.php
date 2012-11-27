@@ -13,6 +13,14 @@
 
     <?php do_action( 'bp_before_directory_activity_page' ); ?>
 
+    <?php if ( is_user_logged_in() ) : ?>
+
+        <?php locate_template( array( 'activity/post-form.php'), true ); ?>
+
+        <div class="clear"></div>
+
+    <?php endif; ?>
+
     <?php get_sidebar( 'buddypress' ); ?>
 
     <div id="content">
@@ -28,12 +36,6 @@
             <?php endif; ?>
 
             <?php do_action( 'bp_before_directory_activity_content' ); ?>
-
-            <?php if ( is_user_logged_in() ) : ?>
-
-                <?php locate_template( array( 'activity/post-form.php'), true ); ?>
-
-            <?php endif; ?>
 
             <?php do_action( 'template_notices' ); ?>
 
