@@ -45,6 +45,9 @@ div#header div#navigation {
 #search-form {
     float: right;
 }
+#search-form * {
+    vertical-align: top;
+}
 #header #search-bar #search-terms {
     height: 23px;
     padding: 2px 10px;
@@ -52,14 +55,12 @@ div#header div#navigation {
     border-radius: 3px 0 0 3px;
     border: 0;
 }
-#header #search-bar #search-which {
+.search-select {
+    display: inline-block;
     height: 27px;
-    padding: 2px 20px 2px 2px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -o-appearance: none;
-    appearance: none;
+    width: auto;
     border: 0;
+    background-color: white;
     background-image: url('images/searchselect.png');
     background-position: right center;
     background-repeat: no-repeat;
@@ -69,9 +70,20 @@ div#header div#navigation {
     margin-right: -3px;
     border-right: 1px solid #ddd;
 }
-#header #search-bar #search-which:hover {
+.search-select:hover {
     background-image: url('images/searchselecthover.png');
     color: #0055a4;
+}
+#search-selected {
+    position: absolute;
+    padding: 4px 0 3px 0;
+    font-size: 1.1em;
+}
+#header #search-bar #search-which {
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
 }
 #header #search-bar #search-submit {
     margin: 0;
