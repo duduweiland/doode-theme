@@ -21,6 +21,35 @@
 				<div class="padder">
 					<h1 id="logo" role="banner"><a href="<?php echo home_url(); ?>" title="<?php _ex( 'Home', 'Home page banner link title', 'buddypress' ); ?>"><?php bp_site_name(); ?></a></h1>
 
+                    <?php do_action( 'doode_before_user_links' ); ?>
+
+                    <div id="user-links">
+                        <?php bp_loggedin_user_avatar( 'type=thumb&width=20&height=20' ); ?>
+
+                        <h4 class="username"><?php echo bp_core_get_userlink( bp_loggedin_user_id() ); ?></h4>
+
+                        <?php if ( is_user_logged_in() ) : ?>
+
+                            <a class="button settings" href="<?php echo bp_loggedin_user_domain() . bp_get_settings_slug(); ?>"><?php _e( 'Settings', 'buddypress' ); ?></a>
+                            <a class="button logout" href="<?php echo wp_logout_url( wp_guess_url() ); ?>"><?php _e( 'Log Out', 'buddypress' ); ?></a>
+
+                        <?php else: ?>
+
+                            <?php if ( bp_get_signup_allowed() ): ?>
+
+                                <a class="button register" href="<?php echo bp_get_signup_page(); ?>"><?php _e( 'Register', 'buddypress' ); ?></a>
+
+                            <? endif; ?>
+
+                            <a class="button login" href="<?php echo wp_login_url( get_permalink() ); ?>"><?php _e( 'Log In', 'buddypress' ); ?></a>
+
+                        <?php endif; ?>
+
+                        <?php do_action( 'doode_user_links' ); ?>
+                    </div>
+
+                    <?php do_action( 'doode_after_user_links' ); ?>
+
                     <form action="<?php echo bp_search_form_action(); ?>" method="post" id="search-form">
                         <label for="search-terms" class="accessibly-hidden"><?php _e( 'Search for:', 'buddypress' ); ?></label>
                         <input type="text" id="search-terms" name="search-terms" value="<?php echo isset( $_REQUEST['s'] ) ? esc_attr( $_REQUEST['s'] ) : ''; ?>" />
@@ -29,7 +58,7 @@
                             <span id="search-selected"></span>
                             <?php echo bp_search_form_type_select(); ?>
                         </div>
-                        
+
                         <script type="text/javascript">
                             jQuery(function($) {
                                 $('#search-which').change(function() {
