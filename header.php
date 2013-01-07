@@ -39,7 +39,7 @@
 
                                 <a class="button register" href="<?php echo bp_get_signup_page(); ?>"><?php _e( 'Register', 'buddypress' ); ?></a>
 
-                            <? endif; ?>
+                            <?php endif; ?>
 
                             <a class="button login" href="<?php echo wp_login_url( get_permalink() ); ?>"><?php _e( 'Log In', 'buddypress' ); ?></a>
 
@@ -60,11 +60,13 @@
                         </div>
 
                         <script type="text/javascript">
+                            //<![CDATA[
                             jQuery(function($) {
                                 $('#search-which').change(function() {
                                     $('#search-selected').html($(this).children(":selected").html());
                                 }).change();
                             });
+                            //]]>
                         </script>
 
                         <input type="submit" name="search-submit" id="search-submit" value="<?php _e( 'Search', 'buddypress' ); ?>" />
